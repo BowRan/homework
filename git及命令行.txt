@@ -1,0 +1,83 @@
+命令行的使用
+pwd    	(print working directory)		
+cd       	(change directory)  		cd ..返回父级
+ls        	(list)	 ls -a ls -l		当前文件夹下有哪些文件
+clear				清除
+open				打开文件
+md  	(make directory)		创建新的文件夹
+ni				创建文件
+mv	move			用来移动和重命名
+rm	remove			用来删除文件
+rm -r				用来删除文件夹
+rm -rf				用来删除文件夹
+rmdir				用来删除空白文件夹
+man				来查后缀，q退出
+
+
+学习git
+1.  分布式版本控制
+2.  多个开发人员协调工作
+3. 有效监听谁做的修改
+4.  本地及远程操作
+
+git init				初始化本地git仓库
+git config --global user.name/email ''  	用来配置用户名和邮箱
+git add<file>			添加文件
+git rm --cached 文件名  		删除文件
+git add *.html			添加某一类文件
+git add .				添加所有文件
+git status				查看状态
+git commit			提交
+ESC :wq
+可以备注添加提交的信息
+git commit -m '备注的信息'		提交及备注
+
+git push				推送到仓库
+git pull				从远程仓库拉取数据
+git clone				从远程仓库拷贝数据
+
+
+1.  如何使用git忽略不想上传的文件	
+git ni .gitignore
+2.  分支的作用			
+git branch +名字			创建分支
+git checkout 名字			到分支
+git checkout master			回到主线
+3.  主线及分支的合并
+git merge	名字			合并分支到主线
+4.  操作远程仓库
+ni README.md			创建readme.md文件 对项目的描述
+git remote			查看是否与github仓库连接
+git remote add origin +地址
+git push -u origin master
+git clone +地址
+
+
+1、修改命令
+git remote origin set-url +URL
+2、先删后加
+git remote rm origin
+git remote add origin  +远程仓库地址
+
+
+1.  git 是代码管理工具
+2.  github是基于git实现的代码管理平台
+
+git checkout 名字			到分支
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

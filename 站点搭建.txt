@@ -1,0 +1,70 @@
+字体图标：：：
+1.  设计师提供SVG格式图标
+2.  上传到对应字体图标网站
+3.  下载生成的代码
+
+常用字体图标库
+http://www.iconfont.cn/    国内阿里
+http://icomoon.io/	         国外
+
+在我的项目中新建一个文件夹 名字叫font
+找到下载好的对应文件，把所有的iconfont开头的文件放到项目的font文件夹下
+注意点：拷贝代码之后需要将@font-face中的资源路径改为拷贝资源对应的路径
+
+
+favicon.ico 
+几乎所有的网站的快捷图标都叫做favicon.ico
+快捷图标必须要放到站点文件夹的根目录下！！！
+通过link标签引入快捷图标
+
+
+
+把初始化的css文件放入css文件夹中
+reset.css		会很暴力的清楚系统默认设置的样式
+normalize.css	会保留系统默认设置的有价值的样式，并且修复了很多浏览器的BUG
+
+自己设置的myCSS.css也放入css文件夹中   这是一个类库，需要自己积累
+再把自己的demo.css放入css文件夹中
+
+
+
+按照别人的放前面，自己的放后面的原则来引入css文件
+
+
+
+
+
+
+
+设置站点的顺序：：：：
+1.  新建站点文件夹
+文件夹名称不能是中文
+里面至少应该包含css/js/images三个子文件夹
+里面至少包含demo.html
+
+2.  设置favicon.ico网页图标
+显示网页选项卡和收藏夹中的图标，称之为favicon
+搜索ico在线制作--上传图标--下载生成好的图标
+放到站点目录根目录下
+再head标签中添加
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
+3.  添加网站优化三大标签
+网页title标签
+name='keywords'关键字
+name='description'网站说明  用来补充title和keywords的不足
+
+4.  导入css reset类库，匠所有的浏览器自带的样式充值掉，保持浏览器渲染的一致性
+reset.css		会很暴力的清楚系统默认设置的样式
+normalize.css	会保留系统默认设置的有价值的样式，并且修复了很多浏览器的BUG
+
+5.  设置全局通用字体行高
+
+6.  优雅降级和渐进增强
+
+
+
+
+
+
+
