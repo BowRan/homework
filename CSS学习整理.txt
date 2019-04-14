@@ -1,0 +1,285 @@
+<！！！------------------------------------------------------CSS部分--------------------------------------------------------------！！！>
+
+！------  [  ]  ------！
+HTML的&lt;  &gt;  &amp;  &quot; 分别是<，>，&，"的转义字符
+&nbsp; 空格
+兼容写法  -webkit- -ms- -moz- -o-
+
+cursor: not-allowed / pointer;
+
+transparent时颜色的一种  透明色    而opacity指的是透明度
+
+
+
+
+！------  [ 边框 ]  ------！
+
+border-radius		
+
+box-shadow		水平偏移量   垂直偏移量   模糊距离   阴影的扩散半径  阴影的颜色   阴影的位置
+
+border-image		
+
+
+！------  [ 背景 ]  ------！
+
+background-bllend-mode	定义了背景层的混合模式（图片与颜色） 用时再去查
+
+background-color		颜色
+background-image		url
+
+background-position	有两个值；若只设一值，第二个为center
+			background-origin属性指定background-position属性应该是相对位置
+
+background-repeat		repeat(默认值) repeat-x repeat-y no-repeat inherit
+
+background-attachment	scroll(默认值) fixed固定 inherit
+
+background-size		设置高度和宽度值或者百分比，若只设有一值，第二个为auto；
+			cover:图片宽高比不变、铺满整个容器的宽高，而图片多出的部分则会被截掉
+			contain:容器内至少有一张完整的图，容器留白区域则平铺背景图，铺不下的再裁掉
+
+background-origin		padding-box(默认值);border-box;content-box
+			如果背景图像background-attachment是"固定"，这个属性没有任何效果
+
+bakcground-clip		border-box(默认值) padding-box content-box 指定背景绘制区域
+
+
+！------  [ 函数 ]  ------！
+
+linear-gradient(线性)		向下/上/左/右/对角  to方向/left top设置对角/angle(指水平线与渐变线的角度,逆时针方向计算,0度由下向上)
+
+			但是，请注意很多浏览器(Chrome,Safari,fiefox等)的使用了旧的标准，即 0deg 将创建一个从左到右的渐变，
+			90deg 将创建一个从下到上的渐变。换算公式 90 - x = y 其中 x 为标准角度，y为非标准角度
+
+			可以使用多个颜色节点
+repeating-linear-gradient	重复线性渐变 (red, yellow 10%, green 20%)
+
+
+radial-gradient(径向)		shape参数可以设置circle或者ellipse 椭圆(默认值)或者设置百分比
+radial-gradient(center, shape size, start-color, ..., last-color)
+			size参数定义了渐变的大小 有下列四个值
+			closest-side farthest-side closest-corner farthest-corner
+
+repeating-radial-gradient()	重复
+
+
+attr(attribute-name)		a:after {
+    				content: " (" attr(href) ")";
+			}
+
+calc()			用于动态计算长度值
+
+
+！------  [ 文本效果 ]  ------！
+
+text-shadow		文本阴影
+box-shadow		水平偏移量   垂直偏移量   模糊距离   阴影的扩散半径  阴影的颜色   阴影的位置
+text-overflow		ellipsis省略号代表被修剪文本   clip修剪文本  string使用给定的字符串来代表被修剪的文本
+word-wrap		允许长的内容可以自动换行
+word-break		normal(使用浏览器默认的换行规则)  break-all允许在单词内换行 keep-all只能在半角宫格或连字符处换行
+text-transform		capitalize文本中的每个单词以大写字母开头  uppercase大写  lowercase小写 none默认
+
+
+
+！------  [ 2D/3D转换 ]  ------！
+
+backface-visibility		visible  hidden 定义元素在不面对屏幕时是否可见
+
+
+
+
+
+！------  [ 过度 ]  ------！
+
+transition
+transition-property		过度的css属性的名称
+transition-duration		过度所需要的时间
+transition-timint-function	过度效果的事件曲线(默认ease)  
+			ease慢速开始，然后变快，然后慢速结束的过渡效果
+			linear一直以同样的速度
+			ease-in慢开始的过度效果
+			ease-out慢结束的过度效果
+			ease-in-out慢开始和慢结束的过度效果
+			cubic-bezier(0, 0, 0, 0) 函数中定义自己的值。可能的值是 0 至 1 之间的数值
+transition-delay		延迟的时间
+
+
+！------  [ 字体 ]  ------！
+
+@font-face{
+	font-family: myFirstFont;
+	src: url();
+}
+
+
+
+！------  [ 动画 ]  ------！
+
+@keyframes  名字
+from{
+
+}to{
+
+}
+
+或者
+0%{
+}
+25%{
+}
+50%{
+}
+100%{}
+
+animation:  名字  时间 次数 方向(normal reverse alternate(奇数正方 偶数反方) alternate-reverse)
+
+
+
+！------  [ 多列 ]  ------！
+
+看W3C
+
+
+！------  [ 用户界面 ]  ------！
+
+resize: both;		指定一个元素是否应该由用户去调整大小
+box-sizing: border-box	
+
+
+！------  [ 图片 ]  ------！
+
+filter: grayscale( %);			图片滤镜
+
+
+
+！------  [ 多媒体查询 ]  ------！
+
+@media screen and (min-width: ){
+
+}
+
+
+
+
+
+！------  [ 弹性盒子 ]  ------！
+
+精灵图：
+可以减少服务器请求的次数，减少服务器的压力
+
+
+box-sizing:  content-box默认值；border-box
+
+弹性盒子
+display: flex;
+flex-direction:    row;默认值row   row-reverse   column   column-reverse
+设置主轴相关的   justify-content: flex-start;   在伸缩容器中写   和主轴起点对齐这是默认值  flex-start;   flex-end   center  space-between  space-around
+设置侧轴相关的   align-items:                        在伸缩容器中写
+	         flex-start         
+	         和侧轴起点对齐这是默认值flex-satrt  flex-end  center  baseline让所有伸缩项中的基线在一条直线上对齐
+                         stretch  拉伸对齐/等高对齐；  让所有伸缩项的高度变为侧轴的高度  如果伸缩项设置了高度，那么拉伸对齐就会失效
+align-self：   在伸缩项中填写  /控制编写对应代码的哪个伸缩项， 用来指定哪个伸缩项的拉伸
+
+
+
+默认情况下如果伸缩容器的一行放不下所有的伸缩项，那么系统会自动等比压缩所有的伸缩项
+在伸缩容器中有一个叫做flex-wrap属性，专门用于控制放不下是否需要换行的
+默认取值：  flex-wrap: nowrap  		不换行
+	  flex-wrap: wrap;     		换行
+	  flex-wrap: wrap-reverse 	放不下就换行，以 行 为单位进行反转
+	  
+	  align-content	用于换行之后的对齐方式的,只有伸缩项发生了换行才能生效
+	  align-content: flex-start;   	换行之后和侧轴的起点对齐，一行接一行
+	  align-content: flex-end;	换行之后和侧轴的终点对齐，把所有换行之后的内容当作一个整体来操作
+	  align-content: center;	换行之后和侧轴的中点对齐，
+	  align-content: space-between;换行之后在侧轴两端对齐，
+	  align-content: space-around;	换行之后在侧轴上环绕对齐，
+	  align-content: stretch;	以行 为单位进行拉伸，拉伸的部分以空白填充， 保证拉伸之后所有的行加起来能够填满侧轴
+
+align-self：   	在伸缩项中填写  /控制编写对应代码的哪个伸缩项， 用来指定哪个伸缩项的拉伸
+order:  num;  	在伸缩项中填写num大就排在后面(用于伸缩项的排序)  默认情况下所有的伸缩项的order属性的取值都是0
+flex-grow: 0;       	默认值为0  不需要扩充   只有当所有伸缩项的宽度小于容器的宽度的时候才能生效
+flex-shrink: 1;	默认值为1  表示当所有伸缩项宽度的综合大于伸缩容器宽度的时候等比缩小  
+		只有当伸缩项总宽大于容器宽度的时候才能生效
+
+扩充缩小的注意点;
+扩充和缩小的是主轴防线上的值   根据主轴的方向来判断是水平还是垂直方向的
+flex-basis属性设置伸缩项的宽度   
+在伸缩布局中如果通过flexbasis设置了宽度，那么在通过width设置宽度就会失效  flex-basis的优先级高于width的优先级
+在伸缩布局中如果同时通过flex-basis和width设置了宽度，而且一个设置的是auto，一个设置的是具体的值，那么会按照具体的值来显示
+
+flex: 0 1 auto;
+
+
+
+
+
+
+
+
+
+<！！！------------------------------------------------------LESS部分--------------------------------------------------------------！！！>
+<link rel="stylesheet/less" href="licuan.less">
+
+less是一门css预处理语言，他扩展了css语言，增加了变量,Mixin,函数等特性，使css更易维护与扩展
+less必须依托服务器环境下
+safari自带服务器环境
+
+金字塔式开发
+
+@
+.
+& 指向this &:hover
+封装函数
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<！！！------------------------------------------------------SASS部分--------------------------------------------------------------！！！>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

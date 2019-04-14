@@ -1,0 +1,274 @@
+jQuery笔记：
+172.19.226.73
+241926bi54.zicp.vip
+
+document.ready和onload的区别——JavaScript文档加载完成事件
+页面加载完成有两种事件
+一是ready，表示文档结构已经加载完成（不包含图片等非文字媒体文件）
+二是onload，指示页面包含图片等文件在内的所有元素都加载完成。
+
+(---！！！jQuery教程！！！---)
+是JS的一个库！
+jQuery 库包含以下特性：
+HTML 元素选取
+HTML 元素操作
+CSS 操作
+HTML 事件函数
+JavaScript 特效和动画
+HTML DOM 遍历和修改
+AJAX
+Utilities
+
+
+
+--------------------------------
+
+
+
+$('div/#id/.test').hide()隐藏HTML元素！
+
+
+属性选择器：
+$("[href$='.jpg']")选取所有href值以'.jpg'结尾的元素
+
+
+@@@jQuery 名称冲突
+jQuery 使用 $ 符号作为 jQuery 的简介方式。
+某些其他 JavaScript 库中的函数（比如 Prototype）同样使用 $ 符号。
+jQuery 使用名为 noConflict() 的方法来解决该问题。
+var jq = jQuery.noConflict()，帮助您使用自己的名称（比如 jq）来代替 $ 符号。
+
+
+
+-------------------------------------------------------------------------------------
+
+
+(---！！！jQuery效果！！！---)--------------------------------------------------------！！！
+@@@隐藏/显示：
+$("div").hide()/.show(speed, callback);   
+speed的值可以是slow，fast或毫秒  可选的callback参数是hide()或show()完成后所执行的函数名称
+$("div").toggle(speed, callback); 显示被隐藏的元素，并隐藏已显示的元素
+
+
+@@@淡入/淡出：
+$("div").fadeIn(speed, callback);
+可选的speed参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+可选的callback参数是 fadeIn 完成后所执行的函数名称。
+
+$("div).fadeOut(speed, callback);
+可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是 fadeOut 完成后所执行的函数名称。
+
+$("div").fadeToggle(speed, callback);
+fadeToggle()方法可以在fadeIn()和fadeOut()方法之间进行切换
+如果元素已淡出，则 fadeToggle() 会向元素添加淡入效果。
+如果元素已淡入，则 fadeToggle() 会向元素添加淡出效果。
+
+$("div").fadeTo(speed, opacity, callback);
+该方法允许渐变为给定的不透明度，值介于0-1之间
+必需的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+fadeTo() 方法中必需的 opacity 参数将淡入淡出效果设置为给定的不透明度（值介于 0 与 1 之间）。
+可选的 callback 参数是该函数完成后所执行的函数名称。
+
+
+@@@滑动：
+$("div")/.slideDown(speed, callback)/.slideUp()/.slideToggle();
+分别是向下，向上滑动元素
+在两者之间切换：
+如果元素向下滑动，则 slideToggle() 可向上滑动它们。
+如果元素向上滑动，则 slideToggle() 可向下滑动它们。
+可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是滑动完成后所执行的函数名称。
+
+
+@@@动画：
+$("div").animate({params}, speed, callback); 
+该方法用于创建自定义动画。
+必需的 params 参数定义形成动画的 CSS 属性。
+可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是动画完成后所执行的函数名称。
+
+该方法使用相对值：需要在值的前面加上 += 或 -=：
+$("button").click(function(){
+  $("div").animate({
+    left:'250px',
+    height:'+=150px',
+    width:'+=150px'
+  });
+});
+
+该方法使用预定义的值：animate()
+动画值可以设置为：show,hide,toggle
+$("button").click(function(){
+  $("div").animate({
+    height:'toggle'
+  });
+});
+
+该方法也可以使用队列功能：
+$("button").click(function(){
+  var div=$("div");
+  div.animate({height:'300px',opacity:'0.4'},"slow");
+  div.animate({width:'300px',opacity:'0.8'},"slow");
+  div.animate({height:'100px',opacity:'0.4'},"slow");
+  div.animate({width:'100px',opacity:'0.8'},"slow");
+});
+
+
+@@@stop()：
+$("div").stop(stopAll, goToEnd);
+该方法用来停止动画或或效果，在他们完成之前
+stop() 方法适用于所有 jQuery 效果函数，包括滑动、淡入淡出和自定义动画。
+可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。
+可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。
+因此，默认地，stop() 会清除在被选元素上指定的当前动画。
+下面的例子演示 stop() 方法，不带参数：
+$("#stop").click(function(){
+  $("#panel").stop();
+});
+
+
+@@@Chaining：
+
+
+
+----------------------------------------------------------------------------------------
+
+
+
+(---！！！jQuery HTML！！！---)----------------------------------------------------------------！！！
+@@@JQ获取：callback --- function(i， origText){}
+text(callback); 设置或返回所选元素的文本内容；
+html(callback); 设置或返回所选元素的内容（包括HTML标记）；
+val(callback);  设置或返回表单字段的值；
+attr("div");    用于设置/改变属性值；
+
+
+@@@JQ设置：
+$("div").attr("href", "href中的值")
+attr()方法也可以同事设置多个属性：
+$("button").click(function(){
+  $("#w3s").attr({
+    "href" : "http://www.w3school.com.cn/jquery",
+    "title" : "W3School jQuery Tutorial"
+  });
+});
+attr()，也提供回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。
+$("button").click(function(){
+  $("#w3s").attr("href", function(i,origValue){
+    return origValue + "/jquery";
+  });
+});
+
+
+@@@JQ添加：
+$("div").append("some text");  在被选元素的结尾插入内容
+$("div").prepend("some text"); 在被选元素的开头插入内容
+JQ创建新元素：$("<div></div>")
+function appendText()
+{
+var txt1="<p>Text.</p>";               // 以 HTML 创建新元素
+var txt2=$("<p></p>").text("Text.");   // 以 jQuery 创建新元素
+var txt3=document.createElement("p");  // 以 DOM 创建新元素
+txt3.innerHTML="Text.";
+$("p").append(txt1,txt2,txt3);         // 追加新元素
+}
+
+$("div").after("some text", "", ""...);在被选元素之后插入内容。
+$("div").before("some text", "", ""...);在被选元素之前插入内容。
+通过 after() 和 before() 方法也可以添加若干新元素
+
+
+@@@JQ删除：
+$("div").remove(); 删除被选元素及其子元素，remove() 方法也可接受一个参数，允许您对被删元素进行过滤：
+下面的例子删除 class="italic" 的所有 <p> 元素：
+$("p").remove(".italic");
+
+$("div").empty();  从被选元素中删除子元素
+
+
+@@@JQ CSS类：
+addClass("");    向被选元素添加一个或多个类
+removeClass(""); 从被选元素中删除一个类或多个类
+toggleClass(""); 对被选元素进行添加/删除类的切换操作
+css();         设置或返回样式属性(下一节看)
+
+
+@@@JQ CSS()：
+该方法设置或返回被选元素的一个或多个样式属性;
+$("div").css("background-color", "red");
+$("div").css({"background-color":"yellow", "font-size":"20px"});
+
+
+JQ尺寸：
+width();        	width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。
+height();		height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。
+innerWidth();		innerWidth() 方法返回元素的宽度（包括内边距）。
+innerHeight();		innerHeight() 方法返回元素的高度（包括内边距）。
+outerWidth();		outerWidth() 方法返回元素的宽度（包括内边距和边框）。
+outerHeight();		outerHeight() 方法返回元素的高度（包括内边距和边框）。
+outerWidth(true);	outerWidth(true) 方法返回元素的宽度（包括内边距、边框和外边距）。
+outerHeight(true);	outerHeight(true) 方法返回元素的高度（包括内边距、边框和外边距）。
+
+下面的例子设置指定的 <div> 元素的宽度和高度：
+$("button").click(function(){
+  $("#div1").width(500).height(500);
+});
+
+
+
+！！！(---JQUERY 遍历---)！！！----------------------------------------------------------------！！！
+@@@JQ遍历：
+
+
+@@@JQ祖先：
+$("div").parent();		返回被选元素的直接父元素；
+$("div").parents();		返回被选元素的所有祖先元素，他一路向上知道文档的根元素<html>；
+				同时也可以$("div").parents("ul");返回div元素的所有祖先，并且他是ul元素；
+$("span").parentsUntil("div");	返回介于span和div元素之间的所有祖先元素；
+
+
+@@@JQ后代：
+$("div").children();		返回被选元素的所有直接子元素；
+				$("div").children("p.1");   返回所有类名为1的p元素，并且他们是div的直接子元素；
+$("div").find("span");		find(参数必须)方法返回被选元素的后代元素，一路向下直到最后一个后代；而find("span")返回div后代的所有span元素；
+
+
+@@@JQ同胞：
+siblings()
+next()
+nextAll()
+nextUntil()
+prev()
+prevAll()
+prevUntil()
+
+
+@JQ过滤：
+$("div p").first();	选取div元素内部的第一个p元素
+$("div p").last();	最后一个p元素
+$("p").eq(1);		eq()方法返回被选元素中带有制定索引号的元素
+$("p").filter(".box");	允许您规定一个标准，不匹配的元素会被从集合中删除，匹配的元素会被返回；返回带有类名"box"的所有p元素；
+$("p").not(".box");	与filter()该方法相反，返回不带有"box"的所有的p元素；
+
+
+
+-----------------------------------------------------------------------------------------------
+
+$.extend(obj);	是为了扩展jquery本身，为类添加新的方法
+$.fn.extend(obj);	给JQUERY对象添加方法。
+
+
+
+！！！(---JQUERY：AJAX---)！！！----------------------------------------------------------------！！！
+AJA始于服务器交换数据的艺术，他在补充在全部页面的情况下，实现了对部分网页的更新
+
+
+
+
+
+
+
+
+
+
